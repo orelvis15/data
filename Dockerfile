@@ -1,8 +1,8 @@
 FROM alpine:latest
 
 #INSTALL
-RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y curl zip screen iproute2 sudo
+RUN apk update && apk upgrade
+RUN apk add curl zip screen iproute2 sudo
 
 #TERRARIA SERVER
 EXPOSE 7777/tcp
