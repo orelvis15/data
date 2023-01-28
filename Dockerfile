@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
 #INSTALL
 RUN apt-get update -y && apt-get upgrade -y
@@ -20,7 +20,7 @@ RUN mkfifo /opt/volume/log/log.txt
 
 WORKDIR /root/terraria
 
-RUN curl -L https://github.com/orelvis15/data/blob/master/v1-4-4-9.zip -o terraria_server.zip && unzip terraria_server.zip
+RUN curl -L https://github.com/orelvis15/data/blob/master/v1-4-4-9.zip?raw=true -o terraria_server.zip && unzip terraria_server.zip
 RUN mv Linux/* ../
 RUN rm -r Windows Mac Linux
 
