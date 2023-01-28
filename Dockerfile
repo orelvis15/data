@@ -1,8 +1,5 @@
 FROM ubuntu:latest
 
-ARG version_url
-ARG version_number
-
 #INSTALL
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y curl zip screen iproute2 sudo
@@ -23,7 +20,7 @@ RUN mkfifo /opt/volume/log/log.txt
 
 WORKDIR /root/terraria
 
-RUN curl -L $version_url -o terraria_server.zip && unzip terraria_server.zip
+RUN curl -L https://github.com/orelvis15/data/blob/master/v1-4-4-9.zip -o terraria_server.zip && unzip terraria_server.zip
 RUN mv Linux/* ../
 RUN rm -r Windows Mac Linux
 
