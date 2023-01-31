@@ -20,7 +20,7 @@ RUN mkfifo /opt/volume/log/log.txt
 
 WORKDIR /root/terraria
 
-RUN curl -L https://github.com/orelvis15/data/blob/master/v1-4-4-9.zip?raw=true -o terraria_server.zip && unzip terraria_server.zip
+RUN curl -L {URL_FILE} -o terraria_server.zip && unzip terraria_server.zip
 RUN ls
 RUN mv Linux/* ../
 RUN rm -r Windows Mac Linux
