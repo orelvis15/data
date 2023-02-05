@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 #INSTALL
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y curl zip screen iproute2 sudo xz-utils
+RUN apt-get install -y curl zip screen iproute2 sudo
 
 #TERRARIA SERVER
 EXPOSE 34197/udp
@@ -19,7 +19,7 @@ RUN mkdir /root/factorio && cd /root/factorio
 
 WORKDIR /root/factorio
 
-RUN curl -L {URL_FILE} -o factorio_server.tar.xz && tar xf factorio_server.tar.xz
+RUN curl -L {URL_FILE} -o factorio_server.zip && unzip factorio_server.zip
 
 WORKDIR /root/factorio/bin/x64
 RUN chmod +x factorio
