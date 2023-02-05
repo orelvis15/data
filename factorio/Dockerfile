@@ -25,7 +25,7 @@ WORKDIR /root/factorio/bin/x64
 RUN chmod +x factorio
 
 #create script init server
-RUN echo "#!/bin/bash\n ./factorio --create /opt/volume/data/initial.zip && ./factorio --start-server /opt/volume/data/initial.zip --server-settings /opt/volume/config/server-settings.example.json --console-log /opt/volume/log/log.txt" > init.sh
+RUN echo "#!/bin/bash\n ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
 ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "factorio", "./init.sh"]
