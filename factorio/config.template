@@ -2,7 +2,11 @@
   "name": "{{name.value}}",
   "description": "{{description.value}}",
 
-  "visibility":{"public": {{visibility.public.value}},"lan": {{visibility.lan.value}} },
+  "visibility":
+  {
+    "public": {{visibility.public.value}},
+    "lan": {{visibility.lan.value}}
+  },
 
   "max_players": {{max_players.value}},
 
