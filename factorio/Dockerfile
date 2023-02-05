@@ -13,7 +13,7 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
-ADD config.json /opt/volume/config/config.json
+ADD config.json /opt/volume/config.json
 
 RUN mkdir /root/gplay_server
 WORKDIR /root/gplay_server
@@ -23,7 +23,7 @@ RUN curl -L {URL_FILE} -o server.zip && unzip server.zip
 WORKDIR /root/gplay_server/bin/x64
 RUN chmod +x factorio
 
-RUN echo "!/bin/bash\n mv /opt/volume/config.txt /opt/volume/config/config.txt && ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
+RUN echo "!/bin/bash\n mv /opt/volume/config.json /opt/volume/config/config.json && ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
 ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init.sh"]
