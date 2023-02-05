@@ -14,7 +14,7 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
-ADD config.txt /opt/volume/config/config.txt
+ADD config.txt /opt/volume/config.txt
 
 RUN mkdir /root/gplay_server
 RUN mkfifo /opt/volume/log/log.txt
@@ -29,7 +29,7 @@ RUN rm -r Windows Mac Linux
 WORKDIR /root
 RUN chmod +x TerrariaServer.bin.x86*
 
-RUN echo "!/bin/bash\n ./TerrariaServer.bin.x86_64 -config /opt/volume/config/config.txt > /opt/volume/log/log.txt" > init.sh
+RUN echo "!/bin/bash\n mv /opt/volume/config.txt /opt/volume/config/config.txt && ./TerrariaServer.bin.x86_64 -config /opt/volume/config/config.txt > /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
 ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init.sh"]
