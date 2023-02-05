@@ -1,0 +1,53 @@
+{
+  "name": "{{name.value}}",
+  "description": "{{description.value}}",
+
+  "visibility":
+  {
+    "public": {{visibility.public.value}},
+    "lan": {{visibility.lan.value}}
+  },
+
+  "max_players": {{max_players.value}},
+
+  "username": "{{username.value}}",
+
+  "password": "{{password.value}}",
+
+  "token": "{{token.value}}",
+
+  "game_password": "{{game_password.value}}",
+
+  "require_user_verification": {{require_user_verification.value}},
+
+  "max_upload_in_kilobytes_per_second": {{max_upload_in_kilobytes_per_second.value}},
+
+  "max_upload_slots": {{max_upload_slots.value}},
+
+  "minimum_latency_in_ticks": {{minimum_latency_in_ticks.value}},
+
+  "max_heartbeats_per_second": {{max_heartbeats_per_second.value}},
+
+  "ignore_player_limit_for_returning_players": {{ignore_player_limit_for_returning_players.value}},
+
+  "allow_commands": "{{allow_commands.value}}",
+
+  "autosave_interval": {{autosave_interval.value}},
+
+  "autosave_slots": {{autosave_slots.value}},
+
+  "afk_autokick_interval": {{afk_autokick_interval.value}},
+
+  "auto_pause": {{auto_pause.value}},
+
+  "only_admins_can_pause_the_game": {{only_admins_can_pause_the_game.value}},
+
+  "autosave_only_on_server": {{autosave_only_on_server.value}},
+
+  "non_blocking_saving": {{non_blocking_saving.value}},
+
+  "minimum_segment_size": {{minimum_segment_size.value}},
+  "minimum_segment_size_peer_count": {{minimum_segment_size_peer_count.value}},
+  "maximum_segment_size": {{maximum_segment_size.value}},
+  "maximum_segment_size_peer_count": {{maximum_segment_size_peer_count.value}}
+}
