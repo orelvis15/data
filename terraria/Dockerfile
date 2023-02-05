@@ -15,12 +15,12 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
-RUN mkdir /root/terraria && cd /root/terraria
+RUN mkdir /root/gplay_server
 RUN mkfifo /opt/volume/log/log.txt
 
-WORKDIR /root/terraria
+WORKDIR /root/gplay_server
 
-RUN curl -L {URL_FILE} -o terraria_server.zip && unzip terraria_server.zip
+RUN curl -L {URL_FILE} -o server.zip && unzip server.zip
 RUN ls
 RUN mv Linux/* ../
 RUN rm -r Windows Mac Linux
@@ -32,4 +32,4 @@ RUN chmod +x TerrariaServer.bin.x86*
 RUN echo "#!/bin/bash\n ./TerrariaServer.bin.x86_64 -config /opt/volume/config/config.txt > /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
-ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "terraria", "./init.sh"]
+ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init.sh"]
