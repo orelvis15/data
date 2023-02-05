@@ -4,6 +4,7 @@ RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get install -y curl zip screen iproute2 sudo
 
 EXPOSE 7777/tcp
+
 RUN mkdir -p /opt/volume/data
 VOLUME /opt/volume/data
 
@@ -12,6 +13,8 @@ VOLUME /opt/volume/log
 
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
+
+ADD config.txt /opt/volume/data/config.txt
 
 RUN mkdir /root/gplay_server
 RUN mkfifo /opt/volume/log/log.txt
