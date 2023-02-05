@@ -1,4 +1,4 @@
-FROM frolvlad/alpine-glibc:alpine-3.12
+FROM ubuntu:latest
 
 #INSTALL
 RUN apt-get -y update && apt-get -y upgrade
