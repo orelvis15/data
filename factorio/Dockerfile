@@ -16,13 +16,12 @@ RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
 RUN mkdir /root/gplay_server
-
 WORKDIR /root/gplay_server
 
 RUN curl -L {URL_FILE} -o server.zip && unzip server.zip
 
 WORKDIR /root/gplay_server/bin/x64
-RUN chmod +x gplay_server
+RUN chmod +x factorio
 
 #create script init server
 RUN echo "#!/bin/bash\n ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
