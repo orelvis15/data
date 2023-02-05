@@ -14,7 +14,7 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
-ADD config.txt /opt/volume/config.txt
+ADD config.txt /opt/volume/config/config.txt
 
 RUN mkdir /root/gplay_server
 RUN mkfifo /opt/volume/log/log.txt

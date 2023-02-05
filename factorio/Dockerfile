@@ -13,6 +13,8 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
+ADD config.json /opt/volume/config/config.json
+
 RUN mkdir /root/gplay_server
 WORKDIR /root/gplay_server
 
