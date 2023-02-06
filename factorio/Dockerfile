@@ -23,7 +23,7 @@ RUN curl -L {URL_FILE} -o server.zip && unzip server.zip
 WORKDIR /root/gplay_server/bin/x64
 RUN chmod +x factorio
 
-RUN echo "!/bin/bash\n mv /opt/volume/config.json /opt/volume/config/config.json && ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
+RUN echo "!/bin/bash\n cp -fr /opt/volume/config.json /opt/volume/config/config.json && ./factorio --create /opt/volume/data/save.zip && ./factorio --start-server /opt/volume/data/save.zip --server-settings /opt/volume/config/config.json --console-log /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
 ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init.sh"]
