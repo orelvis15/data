@@ -14,16 +14,14 @@ VOLUME /opt/volume/log
 RUN mkdir /opt/volume/config
 VOLUME /opt/volume/config
 
-
-
 RUN mkdir /root/gplay_server
 RUN mkfifo /opt/volume/log/log.txt
 
 WORKDIR /root/gplay_server
-ADD eula.txt
-ADD config.txt /opt/volume/server.properties
+ADD config.txt server.properties
 
 RUN curl -L https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar -o server.jar
+RUN echo "eula=true" > eula.txt
 
 RUN echo "!/bin/bash\n java -Xms1024M -Xmx1024M -jar server.jar nogui --world /opt/volume/data" > init.sh
 RUN chmod +x init.sh
