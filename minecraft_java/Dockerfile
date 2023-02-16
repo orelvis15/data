@@ -20,7 +20,7 @@ RUN mkfifo /opt/volume/log/log.txt
 WORKDIR /root/gplay_server
 ADD config.txt server.properties
 
-RUN curl -L {URL_FILE} -o server.jar
+RUN curl -L {URL_FILE} -o server.zip && unzip server.zip
 
 RUN echo "eula=true" > eula.txt
 RUN echo "!/bin/bash\n java -Xms1024M -Xmx1024M -jar server.jar nogui --world /opt/volume/data >> /opt/volume/log/log.txt" > init.sh
