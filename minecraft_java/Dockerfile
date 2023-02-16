@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN apt-get -y update && apt-get -y upgrade
-RUN apt-get install -y curl screen iproute2 sudo openjdk-17-jre
+RUN apt-get install -y curl screen zip iproute2 sudo openjdk-17-jre
 
 EXPOSE 25565/tcp
 
