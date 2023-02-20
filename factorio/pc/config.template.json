@@ -4,8 +4,8 @@
 
   "visibility":
   {
-    "public": {{visibility.public.value}},
-    "lan": {{visibility.lan.value}}
+    "public": {{visibility_public.value}},
+    "lan": {{visibility_lan.value}}
   },
 
   "max_players": {{max_players.value}},
