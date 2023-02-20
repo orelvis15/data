@@ -17,7 +17,9 @@ RUN curl -L https://raw.githubusercontent.com/orelvis15/data/master/minecraft/pc
 
 RUN echo "eula=true" > eula.txt
 
-RUN echo "!/bin/bash\n rm /opt/volume/log/log.txt && java -jar server.jar nogui --world /opt/volume/data >> /opt/volume/log/log.txt" > init.sh
+RUN echo \#\!/bin/bash >> init.sh
+RUN echo "rm -f /opt/volume/log/log.txt" >> init.sh
+RUN echo "java -jar server.jar nogui --world /opt/volume/data >> /opt/volume/log/log.txt" >> init.sh
 
 RUN chmod +x init.sh
 
