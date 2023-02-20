@@ -23,7 +23,8 @@ RUN rm -r Windows Mac Linux
 WORKDIR /root
 RUN chmod +x TerrariaServer.bin.x86*
 
-RUN echo "!/bin/bash\n cp -fr /opt/volume/config.txt /opt/volume/config/config.txt && ./TerrariaServer.bin.x86_64 -config gplay_server/config.txt > /opt/volume/log/log.txt" > init.sh
+RUN echo \#\!/bin/bash >> init.sh
+RUN echo "./TerrariaServer.bin.x86_64 -config /root/gplay_server/config.txt > /opt/volume/log/log.txt" > init.sh
 RUN chmod +x init.sh
 
 ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init.sh"]
