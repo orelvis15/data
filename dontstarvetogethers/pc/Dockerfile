@@ -5,9 +5,6 @@ FROM steamcmd/steamcmd:latest
 RUN apt-get -y update && apt-get -y upgrade
 RUN apt-get install -y zip screen iproute2 sudo libcurl4-gnutls-dev
 
-EXPOSE 10999/tcp
-EXPOSE 10999/udp
-
 # Creacion de volumenes
 RUN mkdir -p /opt/volume/data
 VOLUME /opt/volume/data
@@ -47,4 +44,4 @@ RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplay
 RUN chmod +x init_master.sh
 RUN chmod +x init_caves.sh
 
-ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection", "./init_master.sh", "./init_cave.sh"]
+ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection","./init_cave.sh &", "./init_master.sh"]
