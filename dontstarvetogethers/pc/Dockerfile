@@ -44,4 +44,4 @@ RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplay
 RUN chmod +x init_master.sh
 RUN chmod +x init_caves.sh
 
-ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection","./init_cave.sh &", "./init_master.sh"]
+ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection","./init_cave.sh & ./init_master.sh"]
