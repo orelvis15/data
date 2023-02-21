@@ -36,12 +36,12 @@ RUN echo "cp -r ../gplaycluster /opt/volume/data && rm -r ../gplaycluster" >> in
 # El parametro persistent_storage_root especifica la ruta de la configuracion
 # El paramentro conf_dir especifica la carpeta de la configuracion
 # Para este caso la ruta completa de la configuracion seria /opt/volume/data
-RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplaycluster -persistent_storage_root /opt/volume/ -conf_dir data -shard Master >> /opt/volume/log/log.txt" >> init_master.sh
+RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplaycluster -persistent_storage_root /opt/volume -conf_dir data -shard Master >> /opt/volume/log/log.txt" >> init_master.sh
 
 #Script para correr las cavernas
-RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplaycluster -persistent_storage_root /opt/volume/ -conf_dir data -shard Caves >> /opt/volume/log/log.txt" >> init_caves.sh
+RUN echo "./dontstarve_dedicated_server_nullrenderer_x64 -console -cluster gplaycluster -persistent_storage_root /opt/volume -conf_dir data -shard Caves >> /opt/volume/log/log.txt" >> init_caves.sh
 
 RUN chmod +x init_master.sh
 RUN chmod +x init_caves.sh
 
-ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection","./init_cave.sh & ./init_master.sh"]
+ENTRYPOINT ["screen", "-D", "-m", "-A", "-S", "gplaysection","./init_master.sh"]
