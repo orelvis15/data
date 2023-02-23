@@ -12,7 +12,7 @@ maxplayers={{maxplayers.value}}
 
 port={{port.value}}
 
-password={{port.value}}
+password={{password.value}}
 
 motd={{motd.value}}
 
